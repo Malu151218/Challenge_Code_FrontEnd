@@ -18,10 +18,10 @@ class Search extends Component {
     render() {
         return (
             <div className="text-center px-auto py-5 bg-dark text-white">
-                <h1 className="m-5">TV_SERIES</h1>
-                <h2 className="m-5">TV/Stream</h2>
+                <h1 className="m-5">WELCOME TO TV_SERIES</h1>
+                <h2 className="m-5">About Series_Tv</h2>
                 <Form className="container-sm d-flex justify-content-center" inline>
-                    <FormControl onChange={this.inputHandler} type="text" placeholder="Ingrese el nombre de la serie" className="w-75" />
+                    <FormControl onChange={this.inputHandler} type="text" placeholder="Series Name" className="w-75" />
                     <Button variant="outline-info" onClick= {this.clickHandler}>Search</Button>
                 </Form>
             </div>

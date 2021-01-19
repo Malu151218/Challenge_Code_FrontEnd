@@ -7,7 +7,7 @@ class App extends Component {
     super(props);
     this.state={
       search:"", // Variable utilizada para guardar el  resultado del Backend
-      err:"", // informaré sobre algún posiblre error
+      err:"", // informaré sobre algún posible error
       ip:"", // Guadó la IP que obtengo del FrontEnd
       URL:"http://localhost:3005/search/shows/"  /* "http://api.tvmaze.com/singlesearch/shows?q=" */
 
@@ -25,14 +25,14 @@ class App extends Component {
   }
 
 
-  // recibo el parámetro del componente Busqueda
+  // PARAMETRO COMPONENTE SEARCH
   clickHandler = (input) => {
 
-    // limpio estados
+    // CLEAN STATES
     this.setState({ err:""})
     this.setState({ search:""})
 
-    // peticion de busqueda
+    // BUSQUEDA
     fetch(`${this.state.URL}${input}`)
     .then(res => res.json())
     .then(search => {
@@ -55,7 +55,7 @@ class App extends Component {
       return res.json()
     })
     .then((res) => {
-      console.log("IP ENVIADA", res)
+      console.log("IP SEARCH", res)
     });
   }
   
