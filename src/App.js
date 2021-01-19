@@ -55,7 +55,7 @@ class App extends Component {
       return res.json()
     })
     .then((res) => {
-      console.log("IP SEARCH", res)
+      console.log("IP search", res)
     });
   }
   
