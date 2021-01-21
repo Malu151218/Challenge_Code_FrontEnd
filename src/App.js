@@ -6,10 +6,10 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state={
-      search:"", // Variable utilizada para guardar el  resultado del Backend
-      err:"", // informaré sobre algún posible error
+      result:"", // Variable utilizada para guardar el  resultado del Backend
+      error:"", // informaré sobre algún posible error
       ip:"", // Guadó la IP que obtengo del FrontEnd
-      URL:"http://localhost:3005/search/shows/"  /* "http://api.tvmaze.com/singlesearch/shows?q=" */
+      URL:"http://localhost:4500/search/shows/"  /* "http://api.tvmaze.com/singlesearch/shows?q=" */
 
     }
   }
@@ -29,21 +29,21 @@ class App extends Component {
   clickHandler = (input) => {
 
     // CLEAN STATES
-    this.setState({ err:""})
-    this.setState({ search:""})
+    this.setState({ error:""})
+    this.setState({result :""})
 
     // BUSQUEDA
     fetch(`${this.state.URL}${input}`)
     .then(res => res.json())
-    .then(search => {
-      search.search !== undefined? this.setState({ err:""}) : this.setState({ err:search.search})
-      this.setState({ search: search.search});
-      console.log("resultado desde back: ",search.search)
-      console.log("error desde back: ",this.state.err)
+    .then(result => {
+      result.result !== undefined? this.setState({ error:""}) : this.setState({ error:result.result })
+      this.setState({ result: result.result });
+      console.log("resultado desde back: ",result.result )
+      console.log("error desde back: ",this.state.error)
     })
-    .catch(err=> {
-      this.setState({ err: err})
-      console.log("error desde catch: ",err)
+    .catch(error => {
+      this.setState({ error: error})
+      console.log("error desde catch: ",error)
     })
     
     fetch(`${this.state.URL}ip`, {
@@ -55,7 +55,7 @@ class App extends Component {
       return res.json()
     })
     .then((res) => {
-      console.log("IP search", res)
+      console.log("IP ENVIADA", res)
     });
   }
   
@@ -63,10 +63,9 @@ class App extends Component {
     return (
       <div>
         <Search clickHandler={this.clickHandler}/>
-        <Results err= {this.state.err} search={this.state.search}/>
+        <Results error= {this.state.error} result={this.state.result}/>
       </div>
     );
   }
 }
-
 export default App;
