@@ -1,32 +1,27 @@
-import React, { Component } from 'react';
-import {Form, FormControl, Button} from 'react-bootstrap'
-import "bootstrap/dist/css/bootstrap.min.css"
+import React from 'react';
 
-class Search extends Component {
-
-    constructor(props) {
-        super(props);
+export default class Search extends React.Component{
+    constructor(){
+        super();
         this.state={
-            input:""
-        }
+            serie:""
+        };
     }
-    
-    clickHandler = () => this.props.clickHandler(this.state.input)
-
-    inputHandler = (e) => this.setState({input:e.target.value})
-
-    render() {
-        return (
-            <div className="text-center px-auto py-5 bg-dark text-white">
-                <h1 className="m-5">WELCOME TO TV_SERIES</h1>
-                <h2 className="m-5">About Series_Tv</h2>
-                <Form className="container-sm d-flex justify-content-center" inline>
-                    <FormControl onChange={this.inputHandler} type="text" placeholder="Series Name" className="w-75" />
-                    <Button variant="outline-info" onClick= {this.clickHandler}>Search</Button>
-                </Form>
-            </div>
-        );
-    }
+handleInput=(e)=>{
+    this.setState({serie:e.target.value})
+}
+handleSearch=()=>{
+    const serie = this.state.serie
+    this.props.search(serie)
+    return this.setState({serie:""})
 }
 
-export default Search;
+    render(){
+        return(
+            <div className="container-search">
+                <input className="form-control mr-sm-2" placeholder="Ingrese la serie que desea buscar" onChange={this.handleInput}/>
+                <button className="btn aqua-gradient btn-rounded btn-sm my-0" onClick={this.handleSearch}>Search</button>
+            </div>
+        )
+    }
+}
