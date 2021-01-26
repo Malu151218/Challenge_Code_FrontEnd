@@ -4,7 +4,7 @@ import React from 'react';
 export default class ShowTv extends React.Component {
     render() {
         return (
-            <div className="container-series">
+             <div className="container-series">
                 {this.props.series !== null ? <div className="card mb-3" >
                 <div className="row no-gutters">
                     <div className="col-md-4">
@@ -19,8 +19,10 @@ export default class ShowTv extends React.Component {
                     </div>
                 </div>
             </div>:<span></span>}
-            
             </div>
-        )
-    }
-}
+          );
+      }
+ }
+         
+           
+ 
