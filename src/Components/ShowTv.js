@@ -1,10 +1,11 @@
 import React from 'react';
 
-export default class ShowSerie extends React.Component {
+
+export default class ShowTv extends React.Component {
     render() {
         return (
             <div className="container-series">
-                {this.props.series !== null ? <div className="card mb-3" style={{ maxWidth: '540px' }}>
+                {this.props.series !== null ? <div className="card mb-3" >
                 <div className="row no-gutters">
                     <div className="col-md-4">
                         <img src={this.props.series.image.medium} className="card-img" alt="..." />

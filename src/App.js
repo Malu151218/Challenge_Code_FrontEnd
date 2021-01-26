@@ -2,8 +2,9 @@ import './App.css';
 
 import React from 'react';
 import Search from './Components/Search';
-import ShowSerie from './Components/ShowSerie';
 import Title from './Components/Title';
+import ShowTv from './Components/ShowTv';
+
 
 
 
@@ -13,7 +14,7 @@ export default class App extends React.Component {
     this.state = {
       series:""
     }
-  }
+  } //REALIZO LA BÚSQUEDA
   search = (valor) => {
     console.log(valor)
     fetch(`http://localhost:4300/${valor}`)
@@ -37,8 +38,9 @@ export default class App extends React.Component {
         <div className="container">
           <Title/>
           <Search search={this.search} />
-          <ShowSerie series={this.state.series || []}/>
+          <ShowTv series={this.state.series || []}/>
         </div>
+        
       )
     }
   }

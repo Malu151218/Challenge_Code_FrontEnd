@@ -1,9 +1,13 @@
 import React from 'react'
+import teve from '../Images/img/cintas.PNG';
 
 export default class Title extends React.Component{
     render(){
         return (
-            <h1  className="container-title" >Buscador de Series</h1>
+            <div className="container-title">
+                <h1 className="m-5"><img src ={teve}alt="..." />     <span></span>TV SHOWS </h1>
+                <h2 className="subtitle">Series TV</h2>
+            </div>
         )
     }
 }
